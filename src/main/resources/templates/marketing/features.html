@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Gamified LMS</title>
+    <!-- Bootstrap 5.3.2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Dark theme colors */
+            --bg: #0B0D10;
+            --panel: #101317;
+            --border: #1C2127;
+            --text: #E6EDF3;
+            --muted: #9AA7B2;
+            --primary: #4CC2FF;
+            --primary-deep: #0EA5E9;
+            --accent: #22E1FF;
+            --accent-2: #3A7BD5;
+            --neon-yellow: #E1FF00;
+            --silver: #C7CEDB;
+            --gradient-1: linear-gradient(45deg, var(--primary-deep), var(--primary));
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        [data-theme='light'] {
+            --bg: #F8F9FA;
+            --panel: #E9ECEF;
+            --border: #DEE2E6;
+            --text: #212529;
+            --muted: #6C757D;
+            --silver: #495057;
+            --primary: #4CC2FF;
+            --primary-deep: #0EA5E9;
+            --accent: #22E1FF;
+            --accent-2: #3A7BD5;
+            --neon-yellow: #007BFF;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            padding-top: 5rem; /* For fixed navbar */
+            overflow-x: hidden;
+        }
+        .navbar {
+            background-color: var(--bg);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-primary-gamified {
+            background: var(--gradient-1);
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: transform 0.2s ease;
+        }
+        .btn-primary-gamified:hover {
+            transform: scale(1.05);
+            color: white;
+        }
+        .feature-item {
+            background-color: var(--panel);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+        .feature-icon-lg {
+            font-size: 3.5rem;
+            color: var(--neon-yellow);
+        }
+        .toggle-theme {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body data-theme="dark">
+
+<!-- Theme Toggle Button -->
+<button id="theme-toggle" class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center toggle-theme" style="width: 40px; height: 40px;">
+    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 16 16" style="display: block;">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.299 7.3 7.299.737 0 1.46-.119 2.123-.365a.75.75 0 0 1 .843.897.77.77 0 0 1-.011.082C12.44 14.882 9.426 16 5.928 16A8.001 8.001 0 0 1 0 8c0-3.957 1.748-7.794 4.093-10.002z"/>
+    </svg>
+    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 16 16" style="display: none;">
+        <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm4.507-4.507a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 0 1-.707.707L6.657 9.193a.5.5 0 0 1 0-.707z"/>
+    </svg>
+</button>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand text-light fw-bold" href="#">LMS Gamified</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link text-silver" href="lms_marketing_page.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-silver" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-silver" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-silver" href="signup_page.html">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary-gamified btn-sm ms-2" href="signup_page.html">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">Features That Make Learning a Game</h1>
+        <p class="lead text-silver mb-5">Discover all the powerful tools and gamified elements designed to boost your motivation and learning outcomes.</p>
+
+        <div class="row text-start g-5">
+            <!-- XP System -->
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="feature-item p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="feature-icon-lg me-3">🚀</span>
+                        <h3 class="fw-bold m-0">XP System</h3>
+                    </div>
+                    <p class="text-silver">Every completed lesson, quiz, and project earns you experience points. Your progress is visibly tracked, providing a clear path to mastery. Watch your level climb and unlock new rewards as you become a true expert in your field.</p>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="feature-item p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="feature-icon-lg me-3">🏆</span>
+                        <h3 class="fw-bold m-0">Achievements & Badges</h3>
+                    </div>
+                    <p class="text-silver">Unlock a series of digital badges and achievements for reaching key milestones. Whether it’s completing your first module, mastering a difficult topic, or helping a peer, every accomplishment is celebrated and recognized on your profile.</p>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="feature-item p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="feature-icon-lg me-3">👑</span>
+                        <h3 class="fw-bold m-0">Leaderboards</h3>
+                    </div>
+                    <p class="text-silver">See how you stack up against other learners on the global and private leaderboards. Compete with friends or challenge yourself to reach the top. It's the perfect motivation to stay on track and push your limits.</p>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="feature-item p-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="feature-icon-lg me-3">⚡</span>
+                        <h3 class="fw-bold m-0">Daily Quests & Streaks</h3>
+                    </div>
+                    <p class="text-silver">Keep your momentum going with daily quests and learning streaks. Complete a small task each day to earn bonus XP and maintain your streak. Consistency is the key to success, and we make it fun and rewarding.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 text-center" style="background: linear-gradient(45deg, var(--neon-yellow), var(--accent));">
+    <div class="container text-dark">
+        <h2 class="display-5 fw-bold mb-3">Ready to Join the Adventure?</h2>
+        <p class="lead mb-4">
+            Unlock all these features and more with our premium plans.
+        </p>
+        <a href="pricing_page.html" class="btn btn-dark rounded-pill px-5 py-3 fw-bold">View Pricing Plans</a>
+    </div>
+</section>
+
+<!-- Bootstrap 5.3.2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const moonIcon = document.getElementById('moon-icon');
+    const sunIcon = document.getElementById('sun-icon');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.dataset.theme = savedTheme;
+        if (savedTheme === 'light') {
+            moonIcon.style.display = 'none';
+            sunIcon.style.display = 'block';
+        }
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = body.dataset.theme;
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.dataset.theme = newTheme;
+        localStorage.setItem('theme', newTheme);
+        if (newTheme === 'light') {
+            moonIcon.style.display = 'none';
+            sunIcon.style.display = 'block';
+        } else {
+            moonIcon.style.display = 'block';
+            sunIcon.style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>

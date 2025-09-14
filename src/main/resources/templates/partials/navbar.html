@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,19 +77,16 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                <li class="nav-item">
-                    <a class="nav-link text-silver" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-silver" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-silver" href="#">Demo</a>
-                </li>
-                <!-- Add Login link -->
+            <th:block sec:authorize="!isAuthenticated()">
+                <!-- Example for all links -->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <a class="nav-link text-silver" th:href="@{/features}">Features</a>
+                    <a class="nav-link text-silver" th:href="@{/pricing}">Pricing</a>
+                    <a class="nav-link text-silver" th:href="@{/sign-up}">Sign Up</a>
 
-            </ul>
+                </ul>
+
+            </th:block>
         </div>
     </div>
 </nav>

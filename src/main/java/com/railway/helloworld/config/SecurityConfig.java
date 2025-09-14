@@ -19,7 +19,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/inquire")) // dev convenience; keep or add token in form
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/", "/login", "/courses/**", "/inquire**", "/health",
+                                "/", "/login", "/courses/**", "/inquire**", "/health", "/features", "/demo", "/pricing",
                                 "/css/**", "/js/**", "/img/**", "/webjars/**", "/sign-up"
                         ).permitAll()
                         .anyRequest().authenticated()
