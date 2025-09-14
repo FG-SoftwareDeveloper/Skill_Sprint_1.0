@@ -14,4 +14,19 @@ public class LandingController {
         return "landing";
     }
 
+    @GetMapping("/features")
+    public String features() {
+        return "marketing/features"; // assumes you have features.html
+    }
+
+    @GetMapping("/pricing")
+    public String pricing() {
+        return "marketing/pricing"; // assumes you have pricing.html
+    }
+
+    @GetMapping("/demo")
+    public String demo() {
+        return "marketing/demo"; // assumes you have demo.html
+    }
+
 }

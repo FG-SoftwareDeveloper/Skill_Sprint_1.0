@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,10 +80,15 @@
             <th:block sec:authorize="!isAuthenticated()">
                 <!-- Example for all links -->
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <a class="nav-link text-silver" th:href="@{/features}">Features</a>
-                    <a class="nav-link text-silver" th:href="@{/pricing}">Pricing</a>
-                    <a class="nav-link text-silver" th:href="@{/sign-up}">Sign Up</a>
-
+                    <li>
+                        <a class="nav-link text-silver" th:href="@{/features}">Features</a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-silver" th:href="@{/pricing}">Pricing</a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-silver" th:href="@{/demo}">demo</a>
+                    </li>
                 </ul>
 
             </th:block>

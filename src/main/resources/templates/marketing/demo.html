@@ -1,10 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: head('Demo')">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demos - Gamified LMS</title>
+    <style>
+        :root {
+            --bg: #0B0D10;
+            --panel: #101317;
+            --border: #1C2127;
+            --text: #E6EDF3;
+            --muted: #9AA7B2;
+            --primary: #4CC2FF;
+            --primary-deep: #0EA5E9;
+            --accent: #22E1FF;
+            --accent-2: #3A7BD5;
+            --neon-yellow: #E1FF00;
+            --silver: #C7CEDB;
+            --gradient-1: linear-gradient(45deg, var(--primary-deep), var(--primary));
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        [data-theme='light'] {
+            --bg: #F8F9FA;
+            --panel: #E9ECEF;
+            --border: #DEE2E6;
+            --text: #212529;
+            --muted: #6C757D;
+            --silver: #495057;
+            --primary: #4CC2FF;
+            --primary-deep: #0EA5E9;
+            --accent: #22E1FF;
+            --accent-2: #3A7BD5;
+            --neon-yellow: #007BFF;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            padding-top: 5rem;
+            overflow-x: hidden;
+        }
+        .btn-primary-gamified {
+            background: var(--gradient-1);
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: transform 0.2s ease;
+        }
+        .btn-primary-gamified:hover {
+            transform: scale(1.05);
+            color: white;
+        }
+        .demo-card {
+            background-color: var(--panel);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            height: 100%;
+        }
+        .demo-placeholder {
+            background-color: var(--border);
+            border-radius: 1rem;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+        .toggle-theme {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+        }
+    </style>
 </head>
-<body>
+<body data-theme="dark">
+<!-- Navbar -->
+<div th:replace="partials/navbar :: navbar"></div>
 
+<!-- Demos Section -->
+<section class="py-5">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">See It in Action</h1>
+        <p class="lead text-silver mb-5">Explore these short demos to see how our gamified features make learning engaging and effective.</p>
+        <div class="row g-4">
+            <!-- Demo 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="demo-card">
+                    <div class="demo-placeholder">
+                        Gamified Learning Path Demo
+                    </div>
+                    <h4 class="fw-bold mb-2">XP and Progress Tracking</h4>
+                    <p class="text-silver">Watch how experience points (XP) and leveling-up make every step of your learning journey feel rewarding and visible.</p>
+                </div>
+            </div>
+            <!-- Demo 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="demo-card">
+                    <div class="demo-placeholder">
+                        Interactive Quiz Demo
+                    </div>
+                    <h4 class="fw-bold mb-2">Quests and Badges</h4>
+                    <p class="text-silver">See how our short, interactive quizzes are framed as "quests" that unlock special achievements and digital badges.</p>
+                </div>
+            </div>
+            <!-- Demo 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="demo-card">
+                    <div class="demo-placeholder">
+                        Leaderboard Demo
+                    </div>
+                    <h4 class="fw-bold mb-2">Friendly Competition</h4>
+                    <p class="text-silver">Get a look at the real-time leaderboards, showcasing how a little healthy competition can boost engagement and motivation.</p>
+                </div>
+            </div>
+            <!-- Demo 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="demo-card">
+                    <div class="demo-placeholder">
+                        Profile Customization Demo
+                    </div>
+                    <h4 class="fw-bold mb-2">Personalized Profiles</h4>
+                    <p class="text-silver">Discover how users can customize their avatars and profiles with earned rewards, making their journey unique.</p>
+                </div>
+            </div>
+            <!-- Demo 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="demo-card">
+                    <div class="demo-placeholder">
+                        Learning Streak Demo
+                    </div>
+                    <h4 class="fw-bold mb-2">Consistency is Key</h4>
+                    <p class="text-silver">See how our daily streaks encourage consistent learning habits and reward you for showing up every day.</p>
+                </div>
+            </div>
+            <!-- Demo 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="demo-card">
+                    <div class="demo-placeholder">
+                        Testing Prep Demo
+                    </div>
+                    <h4 class="fw-bold mb-2">Testing Environment</h4>
+                    <p class="text-silver">Preview the dedicated testing prep environment, designed to help you prepare for job-related certifications and exams.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 text-center" style="background: linear-gradient(45deg, var(--neon-yellow), var(--accent));">
+    <div class="container text-dark">
+        <h2 class="display-5 fw-bold mb-3">Ready to Join the Adventure?</h2>
+        <p class="lead mb-4">
+            Sign up today to start your gamified learning journey.
+        </p>
+        <a th:href="@{/sign-up}" class="btn btn-dark rounded-pill px-5 py-3 fw-bold">Sign Up Now</a>
+    </div>
+</section>
+
+<div th:replace="partials/footer :: footer"></div>
+
+<script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const moonIcon = document.getElementById('moon-icon');
+    const sunIcon = document.getElementById('sun-icon');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.dataset.theme = savedTheme;
+        if (savedTheme === 'light') {
+            moonIcon.style.display = 'none';
+            sunIcon.style.display = 'block';
+        }
+    }
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = body.dataset.theme;
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.dataset.theme = newTheme;
+            localStorage.setItem('theme', newTheme);
+            if (newTheme === 'light') {
+                moonIcon.style.display = 'none';
+                sunIcon.style.display = 'block';
+            } else {
+                moonIcon.style.display = 'block';
+                sunIcon.style.display = 'none';
+            }
+        });
+    }
+</script>
 </body>
 </html>
