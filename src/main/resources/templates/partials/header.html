@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:fragment="main-header(title)">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}"></title>
+    <link rel="icon" type="image/png" href="/img/skill_sprint_logo.png" sizes="16x16" />
+    <!--    Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Font Aweseome-->
+    <script src="https://kit.fontawesome.com/4773d21f04.js" crossorigin="anonymous"></script>
+    <!--    Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <!--    Custom CSS-->
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+</html>

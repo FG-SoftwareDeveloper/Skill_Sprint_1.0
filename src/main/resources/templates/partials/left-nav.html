@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <!--        Dashboard Navigation: account, create, view my blogs/posts-->
+        <div th:fragment="left-nav" class="col-lg-3 d-none d-lg-block left-nav">
+            <div class="sticky-top">
+                <!--            Container for profile picture thumbnail and logged in username-->
+                <div class="d-flex">
+                    <!--               Displays logged in username-->
+                    <h2 class="dash-header">Menu</h2>
+<!--                    <h2 class="dash-header" th:text="${user}">username</h2>-->
+                </div>
+                <!--            Navigation for user's account/blog/post -->
+                <div class="dash-nav pl-1">
+                    <hr>
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid container">
+                            <a class="navbar-brand text-light fw-bold" href="#">LMS Gamified</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-silver" href="#">Features</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-silver" href="#">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-silver" href="#">Pricing</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link btn btn-primary-gamified btn-sm ms-2" href="#">Sign Up</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                  <h5><a class="dash-link" th:href="@{/account}">My Account</a></h5>
+                     <h5><a class="dash-link nav-link text-silver" th:href="@{/dashboard/blogs/myblogs}">My Blogs</a></h5>
+                     <h5><a class="dash-link nav-link text-silver" th:href="@{/dashboard/blogs/create}">New Blog</a></h5>
+                     <h5><a class="dash-link nav-link text-silver" th:href="@{/dashboard/posts/myposts}">My Posts</a></h5>
+                     <h5><a class="dash-link nav-link text-silver" th:href="@{/dashboard/posts/create}">New Post</a></h5>-->
+                </div>
+            </div>
+        </div>
+        <!--        End Dashboard Navigation-->
+</body>
+</html>
