@@ -10,14 +10,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/js/app.js"></script>
 </head>
 <body>
-<div th:replace="partials/navbar :: navbar"></div>
+<div class="row w-100 m-0 p-3 align-items-center" style="border-bottom: #239cd3 solid 1px;">
+<div class="col-6">
+    <div th:replace="partials/navbar :: navbar"></div>
+</div>
+<div class="col-6 d-flex justify-content-end align-items-center">
+    <ul class="navbar-nav flex-row mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item">
+            <a class="nav-link btn btn-primary-gamified btn-sm ms-2" href="#">Sign Up</a>
+        </li>
+        <li class="nav-item ms-2">
+            <button id="theme-toggle" class="btn btn-dark rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 16 16" style="display: block;">
+                    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.299 7.3 7.299.737 0 1.46-.119 2.123-.365a.75.75 0 0 1 .843.897.77.77 0 0 1-.011.082C12.44 14.882 9.426 16 5.928 16A8.001 8.001 0 0 1 0 8c0-3.957 1.748-7.794 4.093-10.002z"/>
+                </svg>
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 16 16" style="display: none;">
+                    <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm4.507-4.507a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 0 1-.707.707L6.657 9.193a.5.5 0 0 1 0-.707z"/>
+                </svg>
+            </button>
+        </li>
+    </ul>
+</div>
+</div>
+
 
 <div class="type-bg text-center">
     <div class="type-js headline text-center mt-4">
-        <h3 class="text-js">“Empowering lifelong learners, one course at a time.”</h3>
+        <h3 class="text-js">“Empowering lifelong learners, one course at a time. Start your journey with us and unlock new skills that matter.”</h3>
     </div>
 </div>
 
@@ -73,7 +96,7 @@
                         </svg>
                     </div>
                     <h5 class="fw-bold">Experience Points (XP)</h5>
-                    <p class="text-secondary">Gain XP for every lesson completed and quiz aced. Watch your level grow!</p>
+                    <p class="text-silver">Gain XP for every lesson completed and quiz aced. Watch your level grow!</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -85,7 +108,7 @@
                         </svg>
                     </div>
                     <h5 class="fw-bold">Unforgettable Achievements</h5>
-                    <p class="text-secondary">Unlock digital badges for milestone accomplishments and show off your skills.</p>
+                    <p class="text-silver">Unlock digital badges for milestone accomplishments and show off your skills.</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -97,28 +120,68 @@
                         </svg>
                     </div>
                     <h5 class="fw-bold">Climb the Leaderboard</h5>
-                    <p class="text-secondary">Compete with friends and peers to see who's at the top of their game.</p>
+                    <p class="text-silver">Compete with friends and peers to see who's at the top of their game.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Testimonials Section -->
+<!-- Most Popular Courses Section -->
 <section class="py-5 bg-dark">
     <div class="container">
-        <h2 class="text-center fw-bold mb-5">Hear From Our Community</h2>
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="card p-4">
-                    <p class="fst-italic text-secondary">"I used to dread studying, but the gamified approach makes it so much fun. I can't wait to log in and earn my next badge!"</p>
-                    <p class="fw-bold mb-0">- Sarah C., Student</p>
+        <h2 class="text-center fw-bold mb-5">Most Popular Courses</h2>
+        <div class="row g-4 text-center">
+            <div class="col-md-3">
+                <div class="course-card">
+                    <div class="course-icon">
+                        <!-- SVG for Web Development -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M14 6H2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zm-1 7h-2.5a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 0 1zM2 13a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </div>
+                    <h5 class="fw-bold">Front-End Fundamentals</h5>
+                    <p class="text-silver">Master HTML, CSS, and JavaScript to build beautiful websites.</p>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card p-4">
-                    <p class="fst-italic text-secondary">"The platform is so intuitive and the competition with my friends keeps me motivated. My grades have never been better."</p>
-                    <p class="fw-bold mb-0">- Alex R., Aspiring Coder</p>
+            <div class="col-md-3">
+                <div class="course-card">
+                    <div class="course-icon">
+                        <!-- SVG for Data Science -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M5.5 12.5A.5.5 0 0 1 6 12h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                            <path fill-rule="evenodd" d="M11.5 8H12a.5.5 0 0 1 0 1h-.5a.5.5 0 0 1 0-1z"/>
+                            <path fill-rule="evenodd" d="M11.5 4H12a.5.5 0 0 1 0 1h-.5a.5.5 0 0 1 0-1z"/>
+                            <path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM3 3h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
+                        </svg>
+                    </div>
+                    <h5 class="fw-bold">Python for Data Analysis</h5>
+                    <p class="text-silver">Dive into data science with Python, Pandas, and Matplotlib.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course-card">
+                    <div class="course-icon">
+                        <!-- SVG for Marketing -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M15.5 1h-14a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 2h12v12H2V2zm5.5 5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5zm4 0v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5z"/>
+                        </svg>
+                    </div>
+                    <h5 class="fw-bold">Digital Marketing & SEO</h5>
+                    <p class="text-silver">Learn how to drive traffic and grow your brand online.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="course-card">
+                    <div class="course-icon">
+                        <!-- SVG for Mechatronics -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 4.298c-.287 0-.52-.224-.52-.5S7.713 3.278 8 3.278s.52.224.52.5S8.287 4.298 8 4.298z"/>
+                            <path d="M14 10.975v-.701c-.886-.683-2.645-1.464-2.645-3.834V5.5c0-.987-.29-1.89-1.393-2.923l-.152-.143a.6.6 0 0 0-.962.06l-.16.273c-.567.962-1.575 2.126-2.633 2.531v-.954a.6.6 0 0 0-1.196 0v.954c-.958-.335-2.29-1.332-2.73-2.074a.6.6 0 0 0-.962-.06l-.152.143C2.89 3.615 2.6 4.518 2.6 5.5v.94c0 2.37-1.758 3.15-2.646 3.833v.702c.888.682 2.646 1.465 2.646 3.835v.993a.6.6 0 0 0 1.2 0v-.993c.958.336 2.29 1.334 2.73 2.077a.6.6 0 0 0 .962.06l.152-.144c.567-.962 1.575-2.126 2.633-2.531v.954a.6.6 0 0 0 1.196 0v-.954c.958.335 2.29 1.332 2.73 2.074a.6.6 0 0 0 .962.06l.152-.143c1.103-1.033 1.393-1.936 1.393-2.923v-.94c0-2.37 1.758-3.15 2.646-3.833zm-9.354 1.115a.6.6 0 0 1-.6.6h-1.55a.6.6 0 0 1-.6-.6v-1.549a.6.6 0 0 1 .6-.6h1.55a.6.6 0 0 1 .6.6v1.549zm5.558 0a.6.6 0 0 1-.6.6h-1.549a.6.6 0 0 1-.6-.6v-1.549a.6.6 0 0 1 .6-.6h1.549a.6.6 0 0 1 .6.6v1.549z"/>
+                        </svg>
+                    </div>
+                    <h5 class="fw-bold">Mechatronics Engineering</h5>
+                    <p class="text-silver">Blend mechanics, electronics, and computer science to build intelligent systems.</p>
                 </div>
             </div>
         </div>
@@ -129,8 +192,8 @@
 <section class="cta-section">
     <div class="container">
         <h2 class="display-5 fw-bold mb-3">Ready to Play & Learn?</h2>
-        <p class="lead mb-4 text-white-50">
-            Join thousands of learners who are transforming their education into a rewarding journey.
+        <p class="lead mb-4 text-secondary-50">
+            Your path to growth begins here—join the next wave of innovators.
         </p>
         <a href="#" class="btn btn-light rounded-pill px-5 py-3 fw-bold">Sign Up for Free</a>
     </div>
@@ -141,6 +204,9 @@
 
 
 <div th:replace="partials/footer :: footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/js/app.js"></script>
 <script>
     function autoType(elementClass, typingSpeed) {
         var thhis = $(elementClass);
