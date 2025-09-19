@@ -1,0 +1,163 @@
+openapi: 3.0.3
+info:
+  title: SkillSprintHub API
+  version: 1.0.0
+  description: CodigoYo Academy — Explore. Create. Grow.
+
+servers:
+  - url: /api/v1
+
+paths:
+  /courses:
+    get:
+      summary: List published courses
+      tags: [Courses]
+      parameters:
+        - in: query
+          name: q
+          schema: { type: string }
+      responses:
+        "200":
+          description: OK
+    post:
+      summary: Create course (admin)
+      tags: [Courses]
+      security: [{ bearerAuth: [] }]
+      responses:
+        "201": { description: Created }
+
+  /courses/{slug}:
+    get:
+      summary: Get course by slug
+      tags: [Courses]
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema: { type: string }
+      responses:
+        "200": { description: OK }
+        "404": { description: Not found }
+
+  /courses/{slug}/modules:
+    get:
+      summary: List modules for a course
+      tags: [Modules]
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema: { type: string }
+      responses:
+        "200": { description: OK }
+
+  /modules/{moduleId}:
+    get:
+      summary: Get module detail
+      tags: [Modules]
+      parameters:
+        - in: path
+          name: moduleId
+          required: true
+          schema: { type: integer }
+      responses:
+        "200": { description: OK }
+        "404": { description: Not found }
+
+  /modules/{moduleId}/lessons:
+    get:
+      summary: List lessons in a module
+      tags: [Lessons]
+      parameters:
+        - in: path
+          name: moduleId
+          required: true
+          schema: { type: integer }
+      responses:
+        "200": { description: OK }
+    post:
+      summary: Create lesson (admin)
+      tags: [Lessons]
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - in: path
+          name: moduleId
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+      responses:
+        "201": { description: Created }
+
+  /lessons/{lessonId}:
+    get:
+      summary: Lesson detail
+      tags: [Lessons]
+      parameters:
+        - in: path
+          name: lessonId
+          required: true
+          schema: { type: integer }
+      responses:
+        "200": { description: OK }
+        "404": { description: Not found }
+
+  /grades/lesson/{lessonId}:
+    post:
+      summary: Submit or update grade for a lesson
+      tags: [Grades]
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - in: path
+          name: lessonId
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+      responses:
+        "200": { description: Saved }
+    get:
+      summary: Get my grade for a lesson
+      tags: [Grades]
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - in: path
+          name: lessonId
+          required: true
+          schema: { type: integer }
+      responses:
+        "200": { description: OK }
+        "404": { description: Not found }
+
+  /grades/module/{moduleId}:
+    get:
+      summary: My grade summary for a module
+      tags: [Grades]
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - in: path
+          name: moduleId
+          required: true
+          schema: { type: integer }
+      responses:
+        "200": { description: OK }
+
+  /grades/course/{courseId}:
+    get:
+      summary: My grade summary for a course
+      tags: [Grades]
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - in: path
+          name: courseId
+          required: true
+          schema: { type: integer }
+      responses:
+        "200": { description: OK }
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

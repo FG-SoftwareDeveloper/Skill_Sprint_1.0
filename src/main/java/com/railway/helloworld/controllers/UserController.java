@@ -1,7 +1,7 @@
 package com.railway.helloworld.controllers;
 
 import com.railway.helloworld.models.User;
-import com.railway.helloworld.repositories.UserRepo;
+import com.railway.helloworld.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
-    private final UserRepo users;
+    private final UserRepository users;
     private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepo users, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository users, PasswordEncoder passwordEncoder) {
         this.users = users;
         this.passwordEncoder = passwordEncoder;
     }
