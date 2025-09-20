@@ -7,20 +7,25 @@ import java.util.Set;
 @Table(name = "users")
 public class User {
 
-    @Id
+  @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)   // <-- IMPORTANT
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "username")
     private String username;
-    private String email;
 
-
-    @Column(nullable = false)
+    @Column(name = "password")
     private String password;
 
+    @Column(name = "email")
+    private String email;
 
-
+    @Column(name = "firstName")   // or first_name if you renamed columns
     private String firstName;
-    private String lastName;
 
+    @Column(name = "lastName")
+    private String lastName;
     // Example relationships
     // @OneToMany(mappedBy = "user")
     // private Set<Blog> blogs;

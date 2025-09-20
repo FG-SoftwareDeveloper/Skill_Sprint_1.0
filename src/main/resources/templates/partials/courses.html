@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- HTML (Thymeleaf) -->
+<div class="row">
+    <th:block th:each="course : ${courses}">
+        <div class="col-md-4">
+            <div class="course-card">
+                <h4 th:text="${course.title}"></h4>
+                <p th:text="${course.description}"></p>
+                <!-- Add more fields as needed -->
+            </div>
+        </div>
+    </th:block>
+</div>
+</body>
+</html>

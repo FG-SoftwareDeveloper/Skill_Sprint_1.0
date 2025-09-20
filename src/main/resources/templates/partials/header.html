@@ -13,5 +13,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <!--    Custom CSS-->
     <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <!-- Theme Variables CSS -->
+    <style>
+        :root {
+            --bg: #0B0D10;
+            --panel: #101317;
+            --border: #1C2127;
+            --text: #E6EDF3;
+            --muted: #9AA7B2;
+            --primary: #4CC2FF;
+            --primary-deep: #0EA5E9;
+            --accent: #22E1FF;
+            --accent-2: #3A7BD5;
+            --neon-yellow: #E1FF00;
+            --silver: #C7CEDB;
+            --gradient-1: linear-gradient(45deg, var(--primary-deep), var(--primary));
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        [data-theme='light'] {
+            --bg: #F8F9FA;
+            --panel: #E9ECEF;
+            --border: #DEE2E6;
+            --text: #212529;
+            --muted: #6C757D;
+            --silver: #495057;
+            --primary: #4CC2FF;
+            --primary-deep: #0EA5E9;
+            --accent: #22E1FF;
+            --accent-2: #3A7BD5;
+            --neon-yellow: #007BFF;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+    </style>
 </head>
 </html>

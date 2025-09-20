@@ -1,4 +1,4 @@
-package com.railway.helloworld.controllers;
+package com.railway.helloworld.controllers.CourseManagementControllers;
 
 import com.railway.helloworld.models.Course;
 import com.railway.helloworld.models.User;

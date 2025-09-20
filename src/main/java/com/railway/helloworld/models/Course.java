@@ -60,6 +60,9 @@ public class Course {
     @JoinColumn(name = "tutor_id", nullable = false)
     private Tutor tutor;
 
+    // Default constructor
+    public Course() {}
+
     public Course(String courseName, String courseDescription, String courseDetail, String courseDifficulty, String courseUrl, String imgUrl, Tutor tutor) {
         // Required by JPA
     }

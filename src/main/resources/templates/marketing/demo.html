@@ -4,87 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demos - Gamified LMS</title>
-    <style>
-        :root {
-            --bg: #0B0D10;
-            --panel: #101317;
-            --border: #1C2127;
-            --text: #E6EDF3;
-            --muted: #9AA7B2;
-            --primary: #4CC2FF;
-            --primary-deep: #0EA5E9;
-            --accent: #22E1FF;
-            --accent-2: #3A7BD5;
-            --neon-yellow: #E1FF00;
-            --silver: #C7CEDB;
-            --gradient-1: linear-gradient(45deg, var(--primary-deep), var(--primary));
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
-        }
-        [data-theme='light'] {
-            --bg: #F8F9FA;
-            --panel: #E9ECEF;
-            --border: #DEE2E6;
-            --text: #212529;
-            --muted: #6C757D;
-            --silver: #495057;
-            --primary: #4CC2FF;
-            --primary-deep: #0EA5E9;
-            --accent: #22E1FF;
-            --accent-2: #3A7BD5;
-            --neon-yellow: #007BFF;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            padding-top: 5rem;
-            overflow-x: hidden;
-        }
-        .btn-primary-gamified {
-            background: var(--gradient-1);
-            border: none;
-            color: white;
-            font-weight: bold;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            transition: transform 0.2s ease;
-        }
-        .btn-primary-gamified:hover {
-            transform: scale(1.05);
-            color: white;
-        }
-        .demo-card {
-            background-color: var(--panel);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border);
-            height: 100%;
-        }
-        .demo-placeholder {
-            background-color: var(--border);
-            border-radius: 1rem;
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            color: var(--muted);
-            margin-bottom: 1.5rem;
-        }
-        .toggle-theme {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 1000;
-        }
-    </style>
+      <!-- Bootstrap 5.3.2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body data-theme="dark">
-<!-- Navbar -->
-<div th:replace="partials/navbar :: navbar"></div>
 
+<!-- Theme Toggle Button -->
+<div class="row w-100 m-0 p-3 align-items-center" style="border-bottom: #239cd3 solid 1px;">
+    <div class="col-6">
+        <div th:replace="partials/navbar :: navbar"></div>
+    </div>
+</div>
 <!-- Demos Section -->
 <section class="py-5">
     <div class="container text-center">
@@ -167,9 +103,10 @@
 </section>
 
 <div th:replace="partials/footer :: footer"></div>
-
+<!-- Bootstrap 5.3.2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script>
-    const themeToggleBtn = document.getElementById('theme-toggle');
+   const themeToggleBtn = document.getElementById('theme-toggle');
     const moonIcon = document.getElementById('moon-icon');
     const sunIcon = document.getElementById('sun-icon');
     const body = document.body;
@@ -183,21 +120,19 @@
         }
     }
 
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = body.dataset.theme;
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            body.dataset.theme = newTheme;
-            localStorage.setItem('theme', newTheme);
-            if (newTheme === 'light') {
-                moonIcon.style.display = 'none';
-                sunIcon.style.display = 'block';
-            } else {
-                moonIcon.style.display = 'block';
-                sunIcon.style.display = 'none';
-            }
-        });
-    }
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = body.dataset.theme;
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.dataset.theme = newTheme;
+        localStorage.setItem('theme', newTheme);
+        if (newTheme === 'light') {
+            moonIcon.style.display = 'none';
+            sunIcon.style.display = 'block';
+        } else {
+            moonIcon.style.display = 'block';
+            sunIcon.style.display = 'none';
+        }
+    });
 </script>
 </body>
 </html>

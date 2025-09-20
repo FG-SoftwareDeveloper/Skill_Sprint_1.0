@@ -14,6 +14,12 @@ public class LandingController {
         return "landing";
     }
 
+    @GetMapping("/landing")
+    public String landing(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("name", name);
+        return "landing";
+    }
+
     @GetMapping("/features")
     public String features() {
         return "marketing/features"; // assumes you have features.html
